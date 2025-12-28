@@ -1,0 +1,84 @@
+# ==================== CORE DEPENDENCIES ====================
+# Python 3.8 or higher required (built-in modules not listed)
+
+# System Monitoring & Resource Control
+psutil==5.9.5              # System resource monitoring (CPU, Memory, Disk)
+# resource - Built-in Python module, no installation needed
+# signal - Built-in Python module, no installation needed
+
+# Networking & Security
+requests==2.31.0           # Advanced HTTP client
+urllib3==1.26.16           # HTTP connection pooling
+pyOpenSSL==23.2.0          # SSL/TLS enhancements
+cryptography==41.0.3       # Encryption and security
+
+# Data Processing & Analytics
+numpy==1.24.3              # Numerical operations for attack analytics
+pandas==2.0.3              # Data analysis and statistics
+msgpack==1.0.5             # Efficient data serialization
+
+# ==================== OPTIONAL ENHANCEMENTS ====================
+
+# Quantum Performance Boosters (Recommended)
+uvloop==0.17.0             # Ultra-fast asyncio event loop (Linux only)
+orjson==3.9.7              # Fastest JSON library
+ujson==5.8.0               # Ultra JSON (alternative)
+
+# Advanced Networking
+aiohttp==3.8.5             # Async HTTP client/server
+websockets==11.0.3         # WebSocket support
+dnspython==2.4.2           # DNS toolkit
+scapy==2.5.0               # Packet manipulation
+
+# Monitoring & Metrics
+prometheus-client==0.17.1  # Metrics export
+influxdb-client==1.36.1    # Time-series data storage
+structlog==23.1.0          # Structured logging
+
+# System Integration (Platform Specific)
+# systemd-python==234      # Linux systemd integration
+# pywin32==305             # Windows integration (Windows only)
+# pyobjc==9.0.0            # macOS integration (macOS only)
+
+# CLI & UI Enhancements
+rich==13.5.2               # Beautiful terminal output
+click==8.1.4               # Command line interface
+colorama==0.4.6            # Cross-platform colored terminal
+
+# Monitoring Dashboard (Optional)
+flask==2.3.2               # Web dashboard
+flask-socketio==5.3.4      # Real-time updates
+flask-cors==4.0.0          # CORS support
+plotly==5.15.0             # Interactive charts
+
+# ==================== MINIMAL INSTALLATION ====================
+
+# For basic functionality, install only these:
+# pip install psutil requests cryptography pyOpenSSL
+
+# ==================== INSTALLATION COMMANDS ====================
+
+# Basic Installation:
+# pip install psutil==5.9.5 requests==2.31.0 cryptography==41.0.3 pyOpenSSL==23.2.0
+
+# Standard Installation (recommended):
+# pip install psutil requests cryptography pyOpenSSL numpy pandas msgpack rich
+
+# Full Installation (all features):
+# pip install -r requirements.txt
+
+# ==================== TROUBLESHOOTING ====================
+
+# If installation fails on Windows:
+# 1. Install Microsoft C++ Build Tools: https://visualstudio.microsoft.com/visual-cpp-build-tools/
+# 2. Run as Administrator
+# 3. Use: pip install --only-binary :all: package-name
+
+# Common fixes:
+# pip install --upgrade pip setuptools wheel
+# pip install --no-cache-dir -r requirements.txt
+
+# ==================== VERIFICATION ====================
+
+# Test with:
+# python -c "import psutil; import requests; import cryptography; print('✅ SKYNET v15.0 ready')"
