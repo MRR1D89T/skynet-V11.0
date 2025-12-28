@@ -1,38 +1,23 @@
-#!/bin/bash
-echo "⚡ SKYNET Installation for Kali Linux"
-echo "======================================"
+echo "⚡ SKYNET v15.0 Complete Installation"
+echo "===================================="
 
-# Cek Python
-python_version=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
-echo "Python version: $python_version"
+# Update system
+sudo apt update
+sudo apt install -y python3 python3-pip python3-dev build-essential \
+    libssl-dev libffi-dev libpcap-dev cmake
 
-if [ $(echo "$python_version < 3.8" | bc 2>/dev/null || echo "1") -eq 1 ]; then
-    echo "❌ Python 3.8 or higher required"
-    exit 1
-fi
+# Install all requirements
+pip3 install --break-system-packages --upgrade pip
+pip3 install --break-system-packages -r requirements.txt
 
-# Buat virtual environment
-echo "📁 Creating virtual environment..."
-python3 -m venv skynet_env
+# Verify installation
+python3 -c "
+import psutil, requests, cryptography, uvloop
+import numpy, pandas, scapy, flask, rich
+print('✅ SKYNET v15.0 READY FOR QUANTUM DESTRUCTION')
+print(f'• psutil: {psutil.__version__}')
+print(f'• requests: {requests.__version__}')
+print(f'• uvloop: {uvloop.__version__}')
+"
 
-# Aktifkan virtual environment
-echo "📦 Activating virtual environment..."
-source skynet_env/bin/activate
-
-# Install dependencies di dalam virtual environment
-echo "📦 Installing dependencies..."
-pip install --upgrade pip
-
-# Minimal dependencies untuk Kali
-cat > minimal_requirements.txt << 'EOF'
-psutil>=5.9.0
-requests>=2.28.0
-cryptography>=41.0.0
-rich>=13.0.0
-EOF
-
-pip install -r minimal_requirements.txt
-
-echo "✅ Installation complete!"
-echo "🔧 To activate virtual environment: source skynet_env/bin/activate"
-echo "🚀 Then run: python skynet15.py --help"
+echo "🚀 Run: python3 skynet15.py --help"
